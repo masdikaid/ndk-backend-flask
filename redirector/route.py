@@ -1,9 +1,10 @@
+from os import environ
 from flask import redirect, render_template
 from .redirector import redirectapp, Url
 
 @redirectapp.route("/")
 def index():
-    return "<h1>Hello</h1>"
+    return redirect(environ["CENDEK_APP_URL"])
 
 @redirectapp.route("/favicon.ico")
 def favicon():
