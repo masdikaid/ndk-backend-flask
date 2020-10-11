@@ -17,7 +17,7 @@ def redirector(urlid):
         if len(urldata.target_url) > 1:
             return render_template("collection/url_collection.html", url=urldata)
         else :
-            return redirect(urldata.target_url[0].url)
+            return redirect(urldata.target_url[0]["url"])
     except ValueError:
         abort(404)
 
