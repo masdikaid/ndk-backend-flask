@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Url collection {{ url.urlid }}</title>
+</head>
+<body>
+    {% for url in url.target_url %}
+        <a href="{{ url.url }}">
+            <img src="{{ url.thumb }}" alt="{{ url.title }}">
+            <h1>{{ url.title }}</h1>
+            <p>{{ url.desc }}</p>
+        </a>
+    {% endfor %}
+</body>
+</html>
