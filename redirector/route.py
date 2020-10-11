@@ -1,5 +1,5 @@
 from os import environ
-from flask import redirect, render_template, abort
+from flask import redirect, render_template, abort, request
 from .redirector import redirectapp, Url
 
 @redirectapp.route("/")
@@ -14,6 +14,7 @@ def favicon():
 def redirector(urlid):
     try :
         urldata = Url.get(urlid)
+        urldata.hit(request)
         if len(urldata.target_url) > 1:
             return render_template("collection/url_collection.html", url=urldata)
         else :
